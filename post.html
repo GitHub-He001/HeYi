@@ -1,0 +1,104 @@
+<!--
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2024-11-15 03:49:34
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2024-11-15 04:00:24
+ * @FilePath: \hy\post.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文章详情 - HeYi的博客</title>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body x-data="postData()" class="bg-white font-noto">
+    <!-- 导航栏 -->
+    <nav
+      class="sticky top-0 z-20 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30"
+    >
+      <div class="max-w-[980px] mx-auto">
+        <div
+          class="flex items-center justify-between h-12 px-4 sm:px-6 lg:px-0"
+        >
+          <a
+            class="block text-lg sm:text-xl text-gray-900 font-medium"
+            href="./index.html"
+            >HeYi</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- 文章内容 -->
+    <article>
+      <div
+        class="max-w-[366px] sm:max-w-full w-5/6 sm:w-[576px] lg:w-[653px] mx-auto"
+      >
+        <div class="text-xs font-medium text-gray-500">
+          <div x-text="post.category"></div>
+          <div class="mt-1" x-text="post.date"></div>
+        </div>
+        <div class="mt-4 text-3xl font-bold" x-text="post.title"></div>
+        <div class="mt-4 text-xl font-medium" x-text="post.subtitle"></div>
+      </div>
+
+      <div
+        class="max-w-full sm:w-[576px] md:w-[600px] lg:w-[980px] mx-auto my-10"
+      >
+        <img
+          class="w-full sm:rounded-lg object-cover"
+          :src="post.coverImage"
+          :alt="post.title"
+        />
+        <div
+          class="max-w-[366px] sm:max-w-full w-5/6 sm:w-[576px] lg:w-[653px] mx-auto text-xs py-4 text-gray-500"
+          x-text="post.imageCaption"
+        ></div>
+      </div>
+
+      <template x-for="(content, index) in post.content" :key="index">
+        <div
+          class="max-w-full sm:w-[576px] md:w-[600px] lg:w-[980px] mx-auto my-10"
+        >
+          <div
+            class="w-5/6 sm:w-[576px] lg:w-[653px] mx-auto"
+            x-html="renderContent(content)"
+          ></div>
+        </div>
+      </template>
+    </article>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-50 mt-20">
+      <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <!-- 社交媒体链接 -->
+        <div class="flex justify-center space-x-8">
+          <!-- 哔哩哔哩 -->
+          <a
+            href="https://account.bilibili.com/account/home"
+            target="_blank"
+            class="text-gray-400 hover:text-[#00A1D6] transition-colors duration-300"
+          >
+            <!-- 哔哩哔哩图标 -->
+          </a>
+          <!-- 其他社交媒体图标... -->
+        </div>
+        <div class="mt-8 border-t border-gray-900/10 pt-8">
+          <p class="text-center text-xs leading-5 text-gray-500">
+            © 2024 HeYi. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="post.js"></script>
+  </body>
+</html>

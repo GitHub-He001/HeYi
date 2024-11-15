@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+
+.font-noto {
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.backdrop-filter {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* 简化图片和卡片样式 */
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image {
+  transform: scale(1.05);
+}
+
+/* 图片加载占位符 */
+.image-placeholder {
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* 图片比例容器 */
+[class*="aspect-"] {
+  position: relative;
+}
+
+[class*="aspect-"] > * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.aspect-[16/9] {
+  padding-bottom: 56.25%;
+}
+
+.aspect-[4/3] {
+  padding-bottom: 75%;
+}
+
+.aspect-[3/2] {
+  padding-bottom: 66.67%;
+}
+
+/* 优化图片显示 */
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image {
+  transform: scale(1.05);
+}
+
+/* 优化卡片间距 */
+.gap-10 {
+  gap: 2.5rem;
+}
+
+/* 添加卡片阴影效果 */
+.post-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
